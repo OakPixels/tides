@@ -6,7 +6,7 @@ from bs4 import BeautifulSoup
 
 app = Flask(__name__)
 
-@app.route("/tides")
+@app.route("/")
 def tides():
     """Send tides"""
     http = urllib3.PoolManager()
