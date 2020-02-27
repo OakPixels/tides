@@ -9,3 +9,4 @@ temp==2019.4.13
 Werkzeug==0.16.1
 urllib3==1.25.6
 bs4==0.0.1
+Flask-Cors==3.0.8
