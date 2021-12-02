@@ -26,10 +26,8 @@ def tides():
 
     types = soup.find_all('td', attrs={'class' : 'tal'})
     types.pop(0)
-    print(types)
     for type in types:
         type = type.text.strip()
-        print(type)
         new_types.append(type)
     # Remove Header
 
@@ -42,11 +40,11 @@ def tides():
     new_tides.pop(0)
 
     times = soup.find_all('td', attrs={'class' : 'tac'})
-    for time in times:
+    # Remove non times
+    cuttimes = times[1:5]
+    for time in cuttimes:
         time = time.text.strip()
         new_times.append(time)
-    # Remove Header
-    new_times.pop(0)
 
     # Edit Types
     for index, type in enumerate(new_types, start=0):
