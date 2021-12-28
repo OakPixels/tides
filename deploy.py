@@ -40,8 +40,12 @@ def tides():
     new_tides.pop(0)
 
     times = soup.find_all('td', attrs={'class' : 'tac'})
-    # Remove non times
-    cuttimes = times[1:5]
+    # Remove non times depending on amount of tides
+    if len(new_tides) is 3:
+        cuttimes = times[1:4]
+    else:
+        cuttimes = times[1:5]
+    print(cuttimes)
     for time in cuttimes:
         time = time.text.strip()
         new_times.append(time)
