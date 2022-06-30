@@ -29,11 +29,12 @@ def tides():
     for num in range(0,4):
         type = types[num].text.strip()
         new_types.append(type)
+
     # Remove Header
 
     tides = soup.find_all('td', attrs={'class' : 'tar'})
-    for tide in tides:
-        tide = tide.text.strip()
+    for num in range(0,4):
+        tide = tide[num].text.strip()
         tide = tide[:-1]
         new_tides.append(tide)
     # Remove Header
