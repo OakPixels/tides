@@ -26,8 +26,8 @@ def tides():
 
     types = soup.find_all('td', attrs={'class' : 'tal'})
     types.pop(0)
-    for type in types:
-        type = type.text.strip()
+    for num in range(0,4):
+        type = types[num].text.strip()
         new_types.append(type)
     # Remove Header
 
@@ -41,7 +41,7 @@ def tides():
 
     times = soup.find_all('td', attrs={'class' : 'tac'})
     # Remove non times depending on amount of tides
-    if len(new_tides) is 3:
+    if len(new_tides) == 3:
         cuttimes = times[1:4]
     else:
         cuttimes = times[1:5]
@@ -51,15 +51,15 @@ def tides():
         new_times.append(time)
 
     # Edit Types
-    for index, type in enumerate(new_types, start=0):
-        text['extremes'][index]['type'] = type
+    for num in range(0,4):
+        text['extremes'][num]['type'] = type
 
     # Edit Tides
-    for index, tide in enumerate(new_tides, start=0):
-        text['extremes'][index]['height'] = tide
+    for num in range(0,4):
+        text['extremes'][num]['height'] = tide
 
     # Edit Times
-    for index, time in enumerate(new_times, start=0):
-        text['extremes'][index]['time'] = time
+    for num in range(0,4):
+        text['extremes'][num]['time'] = time
 
     return text
